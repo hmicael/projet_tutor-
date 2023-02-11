@@ -6,7 +6,7 @@ class Tache {
   private $matiere;
   private $description;
   private $date_d;
-  private $statut;
+  private bool $statut;
 
   public function __construct(array $data) {
     foreach ($data as $key => $value) {

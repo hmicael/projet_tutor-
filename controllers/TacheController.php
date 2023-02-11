@@ -8,13 +8,19 @@ class TacheController {
     }
 
     public function index() {
+        $title = "Taches";
         $taches = $this->tacheManager->getTaches();
         require(WEBROOT. '/views/liste_tache.php');
     }
 
+    public function add() {
+        $title = "Ajout";
+    }
+
     public function edit(int $id) {
+        $title = "Modifier";
         $tache = $this->tacheManager->getTacheById($id);
-        var_dump($tache);
+        require(WEBROOT. '/views/form_tache.php');
     }
 
     public function delete() {

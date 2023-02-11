@@ -3,7 +3,7 @@
     <head>
         <meta name="description" content="Webpage description goes here" />
         <meta charset="utf-8">
-        <title><?= $title ?></title>
+        <title>Westud' | <?= $title ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 

@@ -1,5 +1,3 @@
-<?php $title = 'Taches'; ?>
-
 <?php ob_start(); ?>
 <h1>Listes des taches: </h1>
 <table>
