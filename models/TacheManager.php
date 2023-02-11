@@ -45,7 +45,7 @@ class TacheManager {
     }
 
     public function add(Tache $tache) {
-        $query = "INSERT INTO tache VALUES (seq_tache.netxval, :titre, :matiere, :description, :date_d, :statut)";
+        $query = "INSERT INTO tache VALUES (seq_tache.netxval, :titre, :matiere, :description, DATE ':date_d', :statut)";
         $cursor = oci_parse($this->conn, $query);
 
         oci_bind_by_name($cursor, ':titre', $tache->getTitre());
@@ -60,7 +60,7 @@ class TacheManager {
     }
 
     public function update(Tache $tache) {
-        $query = "UPDATE tache SET titre = :titre, matiere = :matiere, description = :description, date_d = :date_d, statut = :statut WHERE id = :id";
+        $query = "UPDATE tache SET titre = :titre, matiere = :matiere, description = :description, date_d = DATE ':date_d', statut = :statut WHERE id = :id";
         $cursor = oci_parse($this->conn, $query);
 
         oci_bind_by_name($cursor, ':id', $tache->getId());
