@@ -1,7 +1,7 @@
 <?php
 require('Tache.php');
 
-class TacheModel {
+class TacheManager {
     private $conn;
 
     public function __construct(string $username = 'handri5_a', string $password = 'handri5_a') {
