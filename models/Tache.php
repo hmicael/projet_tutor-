@@ -8,13 +8,16 @@ class Tache {
   private $date_d;
   private $statut;
 
-  public function __construct($id, $titre, $matiere, $description, $date_d, $statut = 0) {
-    $this->id = $id;
-    $this->titre = $titre;
-    $this->matiere = $matiere;
-    $this->description = $description;
-    $this->date_d = $date_d;
-    $this->statut = $statut;
+  public function __construct(array $data) {
+    foreach ($data as $key => $value) {
+        if ($key == 'id' || $key == 'statut') {
+            $value = intval($value);
+        }
+        $method = 'set' . ucfirst($key);
+        if (method_exists($this, $method)) {
+            $this->$method($value);
+        }
+    }
   }
 
   public function getId() {

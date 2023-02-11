@@ -2,11 +2,13 @@
 require(WEBROOT. '/models/TacheManager.php');
 
 class TacheController {
-    public function __construct() {}
+    private $tacheManager;
+    public function __construct() {
+        $this->tacheManager = new TacheManager();
+    }
 
     public function index() {
-        $tache = new Tache(1, 'Titre', 'Matière', 'Desc', '2023-02-11');
-        $taches = [$tache, $tache];
+        $taches = $this->tacheManager->getTaches();
         require(WEBROOT. '/views/liste_tache.php');
     }
 }

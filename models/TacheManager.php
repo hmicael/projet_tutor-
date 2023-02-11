@@ -9,9 +9,8 @@ class TacheManager {
     }
 
     public function connect(string $username, string $password) {
-        $db = 'tp-oracle:1522/db-info';
-        $conn = oci_connect("c##$username", $password, $db);
-        if (!$conn) {
+        $this->conn = oci_connect("c##$username", $password, 'dbinfo');
+        if (! $this->conn) {
             $e = oci_error();
             trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
         }
@@ -24,7 +23,7 @@ class TacheManager {
 
         $taches = array();
         while ($row = oci_fetch_array($cursor, OCI_ASSOC+OCI_RETURN_NULLS)) {
-            array_push($taches, $row);
+            array_push($taches, new Tache($row));
         }
 
         return $taches;
