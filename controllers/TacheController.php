@@ -11,4 +11,17 @@ class TacheController {
         $taches = $this->tacheManager->getTaches();
         require(WEBROOT. '/views/liste_tache.php');
     }
+
+    public function edit(int $id) {
+        $tache = $this->tacheManager->getTacheById($id);
+        var_dump($tache);
+    }
+
+    public function delete() {
+
+    }
+
+    public function toggleCheck() {
+
+    }
 }

@@ -31,14 +31,14 @@ class TacheManager {
 
     public function getTacheById(int $id) {
         $query = 'SELECT * FROM tache WHERE id = :id ORDER BY date_d';
-        $cursor = oci_parse($conn, $query);
+        $cursor = oci_parse($this->conn, $query);
         oci_bind_by_name($cursor, ':id', $id);
         oci_execute($cursor);
 
         $tache = oci_fetch_assoc($cursor);
 
         oci_free_statement($cursor);
-        oci_close($conn);
+        oci_close($this->conn);
 
         return $tache;
     }

@@ -4,8 +4,34 @@ define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));  // chemi
 require(WEBROOT. '/controllers/TacheController.php');
 $tacheController = new TacheController();
 
-if($_SERVER['REQUEST_URI'] === ROOT) {
-    $tacheController->index();
+if (isset($_GET['action']) && $_GET['action'] !== '') {
+	if ($_GET['action'] === 'edit') {
+    	if (isset($_GET['id']) && $_GET['id'] > 0) {
+        	$id = $_GET['id'];
+            $tacheController->edit($id);
+    	} else {
+        	echo 'Erreur : aucun identifiant envoyé';
+        	die;
+    	}
+	} else if ($_GET['action'] === 'toggle-check') {
+    	if (isset($_GET['id']) && $_GET['id'] > 0) {
+        	$id = $_GET['id'];
+            $tacheController->edit($id);
+    	} else {
+        	echo 'Erreur : aucun identifiant envoyé';
+        	die;
+    	}
+	} else if ($_GET['action'] === 'delete') {
+    	if (isset($_GET['id']) && $_GET['id'] > 0) {
+        	$id = $_GET['id'];
+            $tacheController->edit($id);
+    	} else {
+        	echo 'Erreur : aucun identifiant envoyé';
+        	die;
+    	}
+	} else {
+    	echo "Erreur 404 : la page que vous recherchez n'existe pas.";
+	}
 } else {
-    echo "Erreur 404 : la page que vous recherchez n'existe pas.";
+	$tacheController->index();
 }

@@ -24,8 +24,8 @@
                 <td> <?= $tache->getDate_d() ?> </td>
                 <td> <?= $tache->getStatut() ?> </td>
                 <td>
-                    <?= '<a href="edit-' . $tache->getId() . '"class="btn btn-warning">edit</a>' ?>
-                    <?= '<a href="delete' . $tache->getId() . '"class="btn btn-danger">delete</a>' ?>
+                    <?= '<a href="?action=edit&id=' . $tache->getId() . '"class="btn btn-warning">edit</a>' ?>
+                    <?= '<a href="?action=delete&id=' . $tache->getId() . '"class="btn btn-danger">delete</a>' ?>
                 </td>
             </tr>
         <?php endforeach; ?>    
