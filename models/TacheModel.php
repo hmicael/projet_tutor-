@@ -52,7 +52,7 @@ class TacheModel {
         oci_bind_by_name($cursor, ':matiere', $tache->getMatière());
         oci_bind_by_name($cursor, ':description', $tache->getDescription());
         oci_bind_by_name($cursor, ':date_d', $tache->getDate_d());
-        oci_bind_by_name($cursor, ':statut', 0);
+        oci_bind_by_name($cursor, ':statut', $tache->getStatut());
 
         oci_execute($cursor);
 
