@@ -29,7 +29,7 @@
                     <div class="navbar-collapse collapse" id="navbarsExample01" style="">
                         <ul class="navbar-nav me-auto mb-2">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="<?= ROOT ?>">Home</a>
+                                <a class="nav-link active" aria-current="page" href="<?= ROOT ?>">Accueil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= ROOT . '?action=param' ?>">Param&egrave;tre</a>
@@ -99,6 +99,11 @@
             </footer>
             <!-- Footer -->
         </footer>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+            crossorigin="anonymous"
+            ></script>
         <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" 
             integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" 

@@ -1,22 +1,22 @@
 <?php ob_start(); ?>
-<form action="<?= $actualLink ?>" method="post">
-   <div class="form-group">
-      <label for="titre">Titre</label>
+<form class="form-card" action="<?= $actualLink ?>" method="post">
+   <div class="form-group mb-3">
+      <label class="form-label" for="titre">Titre</label>
       <input type="text" class="form-control" id="titre" name="titre"
          value="<?= isset($tache) ? $tache->getTitre() : '' ?>" required>
    </div>
-   <div class="form-group">
-      <label for="matiere">Matiere</label>
+   <div class="form-group mb-3">
+      <label class="form-label" for="matiere">Matiere</label>
       <input type="text" class="form-control" id="matiere" name="matiere"
          value="<?= isset($tache) ? $tache->getMatiere() : '' ?>" required>
    </div>
-   <div class="form-group">
-      <label for="description">Description</label>
+   <div class="form-group mb-3">
+      <label class="form-label" for="description">Description</label>
       <input type="text" class="form-control" id="description" name="description"
          value="<?= isset($tache) ? $tache->getDescription() : '' ?>">
    </div>
-   <div class="form-group">
-      <label for="date_d">Date</label>
+   <div class="form-group mb-3">
+      <label class="form-label" for="date_d">Date</label>
       <input type="date" class="form-control" id="date_d" name="date_d"
          value="<?= isset($tache) ? date('Y-m-d', strtotime($tache->getDate_d())) : '' ?>" required>
    </div>

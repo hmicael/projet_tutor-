@@ -1,0 +1,10 @@
+body > main > div > article:nth-child(1) > div > div > div > ul {
+    text-align: center;
+}
+
+.form-card {
+    box-sizing: border-box;
+    margin: 20px auto;
+    padding: 10px 30px;
+    box-shadow: lightgray 4px 4px 20px;
+  }
