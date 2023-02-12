@@ -5,7 +5,9 @@ require(WEBROOT. '/controllers/TacheController.php');
 $tacheController = new TacheController();
 
 if (isset($_GET['action']) && $_GET['action'] !== '') {
-	if ($_GET['action'] === 'edit') {
+    if ($_GET['action'] === 'add') {
+        $tacheController->add();
+    } else if ($_GET['action'] === 'edit') {
     	if (isset($_GET['id']) && $_GET['id'] > 0) {
         	$id = $_GET['id'];
             $tacheController->edit($id);
@@ -24,7 +26,15 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 	} else if ($_GET['action'] === 'delete') {
     	if (isset($_GET['id']) && $_GET['id'] > 0) {
         	$id = $_GET['id'];
-            $tacheController->edit($id);
+            $tacheController->delete($id);
+    	} else {
+        	echo 'Erreur : aucun identifiant envoyé';
+        	die;
+    	}
+	} else if ($_GET['action'] === 'toggle') {
+    	if (isset($_GET['id']) && $_GET['id'] > 0) {
+        	$id = $_GET['id'];
+            $tacheController->toggleCheck($id);
     	} else {
         	echo 'Erreur : aucun identifiant envoyé';
         	die;

@@ -1,30 +1,22 @@
 <?php
 
 class Tache {
-  private $id;
-  private $titre;
-  private $matiere;
-  private $description;
-  private $date_d;
-  private bool $statut;
+  private int $id;
+  private string $titre;
+  private string $matiere;
+  private string $description;
+  private string $date_d;
+  private int $statut;
 
   public function __construct(array $data) {
-    foreach ($data as $key => $value) {
-        if ($key == 'id' || $key == 'statut') {
-            $value = intval($value);
-        }
-        $method = 'set' . ucfirst($key);
-        if (method_exists($this, $method)) {
-            $this->$method($value);
-        }
-    }
+    $this->hydrate($data);
   }
 
   public function getId() {
     return $this->id;
   }
 
-  public function setId($id) {
+  public function setId(int $id = -1) {
     $this->id = $id;
   }
 
@@ -32,7 +24,7 @@ class Tache {
     return $this->titre;
   }
 
-  public function setTitre($titre) {
+  public function setTitre(string $titre) {
     $this->titre = $titre;
   }
 
@@ -40,7 +32,7 @@ class Tache {
     return $this->matiere;
   }
 
-  public function setMatiere($matiere) {
+  public function setMatiere(string $matiere) {
     $this->matiere = $matiere;
   }
 
@@ -48,7 +40,7 @@ class Tache {
     return $this->description;
   }
 
-  public function setDescription($description) {
+  public function setDescription(string $description) {
     $this->description = $description;
   }
 
@@ -56,7 +48,7 @@ class Tache {
     return $this->date_d;
   }
 
-  public function setDate_d($date_d) {
+  public function setDate_d(string $date_d) {
     $this->date_d = $date_d;
   }
 
@@ -64,7 +56,19 @@ class Tache {
     return $this->statut;
   }
 
-  public function setStatut($statut) {
+  public function setStatut(int $statut = 0) {
     $this->statut = $statut;
+  }
+
+  public function hydrate(array $data) {
+    foreach ($data as $key => $value) {
+      if ($key == 'id' || $key == 'statut') {
+          $value = intval($value);
+      }
+      $method = 'set' . ucfirst($key);
+      if (method_exists($this, $method)) {
+          $this->$method($value);
+      }
+    }
   }
 }
