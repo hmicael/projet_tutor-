@@ -15,11 +15,90 @@
     </head>
 
     <body>
-        <header>Header</header>
+        <header>
+            <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="<?= ROOT ?>">
+                    <!-- <img src="<?= ROOT . '/westud.png' ?>" alt="Logo Westud'" width="150" height="75" class="d-inline-block align-text-top"> -->
+                        Westud'
+                    </a>
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="navbar-collapse collapse" id="navbarsExample01" style="">
+                        <ul class="navbar-nav me-auto mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="<?= ROOT ?>">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= ROOT . '?action=param' ?>">Param&egrave;tre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
         <main class="container">
             <?= $content ?>
         </main>
-        <footer>Footer</footer>
+        <footer>
+            <!-- Footer -->
+            <footer class="bg-dark text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-facebook-f"></i
+                ></a>
+
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-twitter"></i
+                ></a>
+
+                <!-- Google -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-google"></i
+                ></a>
+
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-instagram"></i
+                ></a>
+
+                <!-- Linkedin -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-linkedin-in"></i
+                ></a>
+
+                <!-- Github -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-github"></i
+                ></a>
+                </section>
+                <!-- Section: Social media -->                
+                <!-- Section: Text -->
+                <section class="mb-4">
+                <p>
+                    Nous résolvons des problèmes d’organisation des étudiants pour leurs activités scolaires en leur
+                    proposant une plateforme de gestion des tâches qui le relancera pour les achever
+                </p>
+                </section>
+                
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2023 Copyright: Westud'
+            </div>
+            <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+        </footer>
         <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" 
             integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" 
