@@ -4,7 +4,7 @@
     <i class="fa-solid fa-triangle-exclamation"></i>
     Il vous reste <?= count($undoneTasks) ?> t&acirc;ches non faites !
     <article id="alert_notif_msg"></article>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button id="alert_notif_close" type="button" class="btn-close" aria-label="Close"></button>
 </section>
 <!-- END: Notification -->
 <h1 class="mt-4 mb-2 col-sm-12">
