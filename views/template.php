@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <meta name="description" content="Webpage description goes here" />
+        <meta name="description" content="Westud' application page" />
         <meta charset="utf-8">
         <title>Westud' | <?= $title ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
