@@ -77,4 +77,17 @@ class TacheController {
         }
         return $data;
     }
+
+    public function param() {
+        $title = 'Paramètre';
+        $actualLink = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")
+            . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        if(isset($_POST['submit']) && $_POST['submit'] === $title) {
+            setcookie('notif_time', $_POST['notif_time'], time() + (10 * 365 * 24 * 60 * 60), "/");
+            
+            header("Location: " . ROOT);
+            exit();
+        }
+        require(WEBROOT. '/views/param.php');
+    }
 }

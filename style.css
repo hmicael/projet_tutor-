@@ -1,4 +1,4 @@
-body > main > div > article:nth-child(1) > div > div > div > ul {
+.dropdown-menu {
     text-align: center;
 }
 

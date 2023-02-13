@@ -39,6 +39,8 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         	echo 'Erreur : aucun identifiant envoyé';
         	die;
     	}
+	} else if ($_GET['action'] === 'param') {
+		$tacheController->param();
 	} else {
     	echo "Erreur 404 : la page que vous recherchez n'existe pas.";
 	}
