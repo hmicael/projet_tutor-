@@ -74,7 +74,7 @@ class TacheManager {
         oci_bind_by_name($stid, ':statut', $tache->getStatut());
 
         oci_execute($stid);
-        
+
         return true;
     }
 
