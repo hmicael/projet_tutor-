@@ -6,7 +6,7 @@ CREATE TABLE tache(
 	titre VARCHAR(15) NOT NULL,
 	matiere VARCHAR(15) NOT NULL,
 	description VARCHAR(50),
-	date_d DATE NOT NULL,
+	date_d VARCHAR(10) NOT NULL,
 	statut SMALLINT DEFAULT 0 CHECK (statut IN (0, 1))
 );
 

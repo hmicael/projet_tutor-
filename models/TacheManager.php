@@ -47,7 +47,7 @@ class TacheManager {
 
     public function add(Tache $tache) {
         $query = "INSERT INTO tache VALUES (seq_tache.nextval, :titre, :matiere, :description, 
-            TO_DATE (:date_d, 'DD-MON-YY'), :statut)";
+            :date_d, :statut)";
         $stid = oci_parse($this->conn, $query);
         
         oci_bind_by_name($stid, ':titre', $tache->getTitre());
@@ -63,7 +63,7 @@ class TacheManager {
 
     public function update(Tache $tache) {
         $query = "UPDATE tache SET titre = :titre, matiere = :matiere, description = :description, 
-            date_d = TO_DATE (:date_d, 'DD-MON-YY'), statut = :statut WHERE id = :id";
+            date_d = :date_d, statut = :statut WHERE id = :id";
         $stid = oci_parse($this->conn, $query);
 
         oci_bind_by_name($stid, ':id', $tache->getId());
@@ -74,7 +74,7 @@ class TacheManager {
         oci_bind_by_name($stid, ':statut', $tache->getStatut());
 
         oci_execute($stid);
-
+        
         return true;
     }
 

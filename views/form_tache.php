@@ -18,7 +18,7 @@
    <div class="form-group mb-3">
       <label class="form-label" for="date_d">Date</label>
       <input type="date" class="form-control" id="date_d" name="date_d"
-         value="<?= isset($tache) ? date('Y-m-d', strtotime($tache->getDate_d())) : '' ?>" required>
+         value="<?= isset($tache) ? $tache->getDate_d() : '' ?>" required>
    </div>
    <input type="hidden" name="id"
       value="<?= isset($tache) ? $tache->getId() : '' ?>">

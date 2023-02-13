@@ -55,7 +55,7 @@
                 <h3 class="card-subtitle mb-2 text-muted"><?= $tache->getMatiere() ?><br></h3>
                 <p class="card-text">
                     <?= $tache->getDescription() ?><br>
-                    <time><?= date('Y-m-d', strtotime($tache->getDate_d())) ?></time>
+                    <time><?= $tache->getDate_d() ?></time>
                 </p>
             </div>
         </article>
