@@ -1,11 +1,23 @@
 <?php ob_start(); ?>
-<h1>Listes des taches: </h1>
-<a class="btn btn-outline-primary" href="?action=add"><i class="fa-solid fa-plus"></i></a>
-
-<div class="">
+<!-- BEGIN: Notification -->
+<section id="alert_notif" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    Il vous reste <?= count($undoneTasks) ?> t&acirc;ches non faites !
+    <article id="alert_notif_msg"></article>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</section>
+<!-- END: Notification -->
+<h1 class="mt-4 mb-2 col-sm-12">
+    <span class="mt-1 text-muted btn-align">Listes des taches</span>
+    <div class="float-sm-end">
+      <a href="?action=add" class="btn btn-outline-secondary align-middle mt-1"><i class="fa-solid fa-plus"></i></a>
+    </div>
+</h1>
+<!-- END: Section -->
+<section>
     <?php foreach ($taches as $tache): ?>
         <article class="mb-3 card">
-            <div class="card-body">
+            <div class="card-body <?= $tache->getStatut() == 1 ? 'tdone' : '' ?>">
                 <!-- BEGIN: Dropdown button -->
                 <?php
                 $toggleItem = '<i class="fa-solid fa-check"></i>';
@@ -47,7 +59,19 @@
                 </p>
             </div>
         </article>
-    <?php endforeach; ?>    
-</div>
+    <?php endforeach; ?>   
+    <aside id="notif_msg" class="text-center bg-danger rounded">
+        <p>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Il vous reste <?= count($undoneTasks) ?> t&acirc;ches non faites !  
+        </p>
+        <div class="d-none" id="undoneTasks">
+            <?php foreach ($undoneTasks as $tache) {
+                echo nl2br('- '. $tache->getTitre() . " pour le " . $tache->getDate_d() . "\n");
+            }?>
+        </div>
+    </aside> 
+</section>
+<!-- END: Section -->
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php') ?>

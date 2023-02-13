@@ -10,6 +10,9 @@ class TacheController {
     public function index() {
         $title = 'Taches';
         $taches = $this->tacheManager->getTaches();
+        $undoneTasks = array_filter($taches, function($t){
+            return $t->getStatut() == 0;
+        });
         require(WEBROOT. '/views/liste_tache.php');
     }
 

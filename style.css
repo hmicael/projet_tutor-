@@ -7,4 +7,15 @@
     margin: 20px auto;
     padding: 10px 30px;
     box-shadow: lightgray 4px 4px 20px;
-  }
+}
+
+.tdone {
+    background-color: lightgreen;
+}
+
+#alert_notif_msg {
+    max-height: 53px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -14,13 +14,19 @@ function getCookie(cname) {
     return "";
 }
 
+document.getElementById('alert_notif').style.display = 'None';
+
 // check the time to pop up the notification
 setInterval(function() {
     let currentdate = new Date(); 
     let time = (currentdate.getHours() + ":" + currentdate.getMinutes()).split(':');
     let notif_time = getCookie("notif_time").split(':');
+    let undoneTasks = document.getElementById('undoneTasks').innerHTML;
     if (parseInt(notif_time[0]) == parseInt(time[0])
             && parseInt(notif_time[1]) == parseInt(time[1])) {
-        console.log(time);
+        if (document.getElementById('alert_notif')) {
+            document.getElementById('alert_notif_msg').innerHTML = undoneTasks;
+            document.getElementById('alert_notif').style.display = 'block';
+        }
     }
 }, 1000);
