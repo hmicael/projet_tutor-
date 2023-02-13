@@ -36,8 +36,7 @@ $(document).ready(function() {
         notif = true;
       }
 		}
-	}, 59*1000);
-  console.log(notif);
+	}, 50*1000);
 	$('#alert_notif_close').click(function(event) {
 		$('#alert_notif').css("display", "None");
 		notif = false;
