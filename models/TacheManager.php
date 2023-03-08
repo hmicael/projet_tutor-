@@ -17,7 +17,7 @@ class TacheManager {
     }
 
     public function getTaches() {
-        $query = "SELECT * FROM tache ORDER BY statut, date_d";
+        $query = 'SELECT * FROM tache WHERE numeroEtudiant = ' . $_COOKIE['numero'] . 'ORDER BY statut, date_d';
         $stid = oci_parse($this->conn, $query);
         oci_execute($stid);
 
@@ -30,7 +30,7 @@ class TacheManager {
     }
 
     public function getTacheById(int $id) {
-        $query = 'SELECT * FROM tache WHERE id = :id';
+        $query = 'SELECT * FROM tache WHERE id = :id AND numeroEtudiant = ' . $_COOKIE['numero'];
         $stid = oci_parse($this->conn, $query);
         oci_bind_by_name($stid, ':id', $id);
         oci_execute($stid);
@@ -47,7 +47,7 @@ class TacheManager {
 
     public function add(Tache $tache) {
         $query = "INSERT INTO tache VALUES (seq_tache.nextval, :titre, :matiere, :description, 
-            :date_d, :statut)";
+            :date_d, :statut, :nomEtudiant, :numeroEtudiant)";
         $stid = oci_parse($this->conn, $query);
         
         oci_bind_by_name($stid, ':titre', $tache->getTitre());
@@ -55,15 +55,18 @@ class TacheManager {
         oci_bind_by_name($stid, ':description', $tache->getDescription());
         oci_bind_by_name($stid, ':date_d', $tache->getDate_d());
         oci_bind_by_name($stid, ':statut', $tache->getStatut());
+        oci_bind_by_name($stid, ':nomEtudiant', $_COOKIE['nom']);
+        oci_bind_by_name($stid, ':numeroEtudiant', $_COOKIE['numero']);
 
         oci_execute($stid);
+        $this->addLog('Ajout d\'une tache');
 
         return true;
     }
 
-    public function update(Tache $tache) {
+    public function update(Tache $tache, $toggleState = false) {
         $query = "UPDATE tache SET titre = :titre, matiere = :matiere, description = :description, 
-            date_d = :date_d, statut = :statut WHERE id = :id";
+            date_d = :date_d, statut = :statut WHERE id = :id AND numeroEtudiant = " . $_COOKIE['numero'];
         $stid = oci_parse($this->conn, $query);
 
         oci_bind_by_name($stid, ':id', $tache->getId());
@@ -74,18 +77,36 @@ class TacheManager {
         oci_bind_by_name($stid, ':statut', $tache->getStatut());
 
         oci_execute($stid);
+        
+        if(! $toggleState)
+            $this->addLog('Modification d\'une tache');
+        else
+            $this->addLog('Changement de statut');
 
         return true;
     }
 
     public function delete(int $id) {
-        $query = "DELETE FROM tache WHERE id = :id";
+        $query = "DELETE FROM tache WHERE id = :id AND numeroEtudiant = " . $_COOKIE['numero'];
         $stid = oci_parse($this->conn, $query);
 
         oci_bind_by_name($stid, ':id', $id);
 
         oci_execute($stid);
+        $this->addLog('Suppression d\'une tache');
 
         return true;
+    }
+
+    public function addLog($action) {
+        $query = "INSERT INTO log VALUES (seq_log.nextval, :nomEtudiant, :numeroEtudiant, :date_action, :action)";
+        $stid = oci_parse($this->conn, $query);
+        
+        oci_bind_by_name($stid, ':nomEtudiant', $_COOKIE['nom']);
+        oci_bind_by_name($stid, ':numeroEtudiant', $_COOKIE['numero']);
+        oci_bind_by_name($stid, ':date_action', date('Y-m-d'));
+        oci_bind_by_name($stid, ':action', $action);
+
+        oci_execute($stid);
     }
 }

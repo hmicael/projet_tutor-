@@ -66,7 +66,7 @@ class TacheController {
             throw new Exception('Tache not found');
 
         $tache->setStatut(($tache->getStatut() + 1) % 2);
-        $this->tacheManager->update($tache);
+        $this->tacheManager->update($tache, true);
 
         header("Location: " . ROOT);
         exit();
