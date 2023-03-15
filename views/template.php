@@ -57,16 +57,6 @@
                     ><i class="fab fa-facebook-f"></i
                 ></a>
 
-                <!-- Twitter -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-twitter"></i
-                ></a>
-
-                <!-- Google -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-google"></i
-                ></a>
-
                 <!-- Instagram -->
                 <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
                     ><i class="fab fa-instagram"></i
@@ -76,11 +66,6 @@
                 <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
                     ><i class="fab fa-linkedin-in"></i
                 ></a>
-
-                <!-- Github -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-github"></i
-                ></a>
                 </section>
                 <!-- Section: Social media -->                
                 <!-- Section: Text -->
@@ -88,6 +73,9 @@
                 <p>
                     Nous résolvons des problèmes d’organisation des étudiants pour leurs activités scolaires en leur
                     proposant une plateforme de gestion des tâches qui le relancera pour les achever
+                </p>
+                <p>
+                    <a href="https://forms.gle/7EgJBztQU7LBTXuJA">Aidez-nous à améliorer notre application</a>
                 </p>
                 </section>
                 
